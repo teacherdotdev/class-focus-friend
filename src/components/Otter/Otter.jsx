@@ -23,40 +23,55 @@ const Otter = ({ equipped, isCelebrating, isFocusing, noiseTone, showAccessorySl
             <path d="M42 171 H72" />
           </g>
           <path className="otter-tail" d="M152 156 C181 172 205 159 208 135 C210 122 201 114 193 118 C186 122 192 133 184 141 C175 150 161 148 150 142Z" />
+          <path className="otter-tail-shade" d="M157 154 C178 162 198 154 204 136 C201 152 184 162 166 160Z" />
           <g className="otter-leg otter-leg-left">
-            <path d="M82 169 C78 185 75 195 68 204" />
-            <path d="M68 204 C61 204 57 207 55 211" />
+            <path className="otter-limb-line" d="M84 172 C82 186 78 196 72 202" />
+            <path className="otter-limb-fur" d="M84 172 C82 186 78 196 72 202" />
+            <ellipse className="otter-foot" cx="66" cy="205" rx="14" ry="8.5" />
+            <path className="otter-toes" d="M58 204 V208 M65 205 V209" />
           </g>
           <g className="otter-leg otter-leg-right">
-            <path d="M143 170 C146 187 151 197 158 205" />
-            <path d="M158 205 C165 204 170 207 172 211" />
+            <path className="otter-limb-line" d="M136 172 C138 186 142 196 148 202" />
+            <path className="otter-limb-fur" d="M136 172 C138 186 142 196 148 202" />
+            <ellipse className="otter-foot" cx="154" cy="205" rx="14" ry="8.5" />
+            <path className="otter-toes" d="M162 204 V208 M155 205 V209" />
+          </g>
+          <g className="otter-arm otter-arm-left">
+            <path className="otter-limb-line" d="M52 116 C44 128 37 139 33 147" />
+            <path className="otter-limb-fur" d="M52 116 C44 128 37 139 33 147" />
+            <circle className="otter-paw" cx="31" cy="152" r="8.5" />
+          </g>
+          <g className="otter-arm otter-arm-right">
+            <path className="otter-limb-line" d="M168 116 C176 128 183 139 187 147" />
+            <path className="otter-limb-fur" d="M168 116 C176 128 183 139 187 147" />
+            <circle className="otter-paw" cx="189" cy="152" r="8.5" />
           </g>
           <g className="otter-ear otter-ear-left"><circle cx="59" cy="45" r="17" /></g>
           <g className="otter-ear otter-ear-right"><circle cx="161" cy="45" r="17" /></g>
-          <path className="otter-blob" d="M110 24 C77 24 47 47 43 85 C40 107 50 128 62 138 C48 148 43 166 51 180 C62 196 158 196 169 180 C177 166 172 148 158 138 C170 128 180 107 177 85 C173 47 143 24 110 24Z" />
-          <ellipse className="otter-belly" cx="110" cy="158" rx="43" ry="32" />
-          <circle className="otter-ear-inner" cx="59" cy="45" r="8" />
-          <circle className="otter-ear-inner" cx="161" cy="45" r="8" />
-          <g className="otter-arm otter-arm-left">
-            <path d="M50 110 C34 121 28 135 30 147" />
-            <path d="M30 147 C24 150 21 155 21 160" />
-          </g>
-          <g className="otter-arm otter-arm-right">
-            <path d="M170 110 C186 121 192 135 190 147" />
-            <path d="M190 147 C196 150 199 155 199 160" />
-          </g>
+          <path className="otter-blob" d="M104 25 C76 27 47 48 43 85 C42 90 41 93 39 96 C41 97 42 97 43 98 C42 102 40 105 36 108 C39 110 42 110 45 111 C45 122 52 132 62 139 C46 148 39 166 48 182 C60 199 160 199 172 182 C181 166 174 148 158 139 C168 132 175 122 175 111 C178 110 181 110 184 108 C180 105 178 102 177 98 C178 97 179 97 181 96 C179 93 178 90 177 85 C173 48 144 27 116 25 C114 21 115 17 119 13 C113 14 110 17 109 21 C107 17 103 15 98 15 C102 18 104 21 104 25Z" />
+          <path className="otter-shade" d="M146 33 C165 45 175 62 177 85 C179 104 172 124 161 136 C166 118 168 100 166 84 C164 62 157 46 146 33Z" />
+          <path className="otter-shade" d="M45 168 C50 186 76 194 110 194 C144 194 170 186 175 168 C172 184 150 197 110 197 C70 197 48 184 45 168Z" />
+          <path className="otter-shine" d="M64 63 C68 51 78 42 90 38 C82 45 75 53 71 63 C69 68 63 67 64 63Z" />
+          <ellipse className="otter-belly" cx="110" cy="160" rx="45" ry="33" />
+          <path className="otter-belly-shade" d="M68 168 C76 186 94 193 110 193 C126 193 144 186 152 168 C142 182 126 187 110 187 C94 187 78 182 68 168Z" />
+          <path className="otter-belly-shine" d="M80 153 C79 144 85 137 93 134 C89 139 87 146 87 153 C86 158 80 158 80 153Z" />
+          <ellipse className="otter-ear-inner" cx="58" cy="44" rx="8" ry="8.5" />
+          <ellipse className="otter-ear-inner" cx="162" cy="44" rx="8" ry="8.5" />
           <g className="otter-face">
-            <ellipse className="otter-muzzle" cx="110" cy="120" rx="31" ry="22" />
-            <path className="otter-whiskers" d="M82 116 L57 109 M82 124 L57 126 M138 116 L163 109 M138 124 L163 126" />
-            <g className="otter-eye otter-eye-left"><ellipse cx="86" cy="91" rx="7" ry="10" /><circle cx="84" cy="88" r="2" /></g>
-            <g className="otter-eye otter-eye-right"><ellipse cx="137" cy="89" rx="7" ry="10" /><circle cx="135" cy="86" r="2" /></g>
+            <ellipse className="otter-blush" cx="67" cy="108" rx="10" ry="6" />
+            <ellipse className="otter-blush" cx="153" cy="106" rx="10" ry="6" />
+            <path className="otter-muzzle" d="M110 104 C100 98 80 101 80 118 C80 132 94 139 110 137 C126 139 140 132 140 118 C140 101 120 98 110 104Z" />
+            <path className="otter-whiskers" d="M80 115 C74 112 68 111 61 112 M80 123 C74 123 69 124 63 127 M140 115 C146 112 152 111 159 112 M140 123 C146 123 151 124 157 127" />
+            <g className="otter-eye otter-eye-left"><ellipse cx="86" cy="91" rx="7.5" ry="10.5" /><circle cx="83.5" cy="87" r="3.2" /><circle className="otter-glint-small" cx="89" cy="95.5" r="1.5" /></g>
+            <g className="otter-eye otter-eye-right"><ellipse cx="136" cy="89" rx="7.5" ry="10.5" /><circle cx="133.5" cy="85" r="3.2" /><circle className="otter-glint-small" cx="139" cy="93.5" r="1.5" /></g>
             <path className="otter-nose" d="M110 100 C119 100 123 104 120 109 C117 114 113 116 110 116 C107 116 103 114 100 109 C97 104 101 100 110 100Z" />
-            <path className="otter-mouth otter-mouth-smile" d="M110 116 L110 121 M110 121 C107 130 97 130 94 122 M110 121 C113 130 123 130 126 122" />
-            <path className="otter-mouth otter-mouth-focus" d="M110 116 L110 122 M99 124 C104 121 116 121 121 124" />
-            <ellipse className="otter-mouth otter-mouth-loud" cx="110" cy="130" rx="10" ry="10" />
-            <path className="otter-mouth otter-mouth-celebrate" d="M92 120 C99 143 121 143 128 118 C116 125 104 125 92 120Z" />
+            <path className="otter-nose-shine" d="M104 104 C106 102 110 102 112 103" />
+            <path className="otter-mouth otter-mouth-smile" d="M110 116 L110 121 M110 121 C107 129 98 129 95 122 M110 121 C113 129 122 129 125 122" />
+            <path className="otter-mouth otter-mouth-focus" d="M110 116 L110 122 M100 125 C105 122 115 122 120 125" />
+            <ellipse className="otter-mouth otter-mouth-loud" cx="110" cy="128" rx="9" ry="9.5" />
+            <path className="otter-mouth otter-mouth-celebrate" d="M93 120 C99 141 121 141 127 118 C116 125 104 125 93 120Z" />
           </g>
-          <path className="otter-heart" transform="translate(5 5)" d="M105 153 C98 145 86 153 105 169 C124 151 112 145 105 153Z" />
+          <path className="otter-heart" transform="translate(5 7)" d="M105 153 C98 145 86 153 105 169 C124 151 112 145 105 153Z" />
           {equipped.includes("glasses") && (
             <g className="otter-glasses">
               <rect x="72" y="78" width="31" height="24" rx="10" />
@@ -101,15 +116,21 @@ const Otter = ({ equipped, isCelebrating, isFocusing, noiseTone, showAccessorySl
               <path className="paper-line line-one" d="M93 151 H134" />
               <path className="paper-line line-two" d="M88 156 H126" />
             </g>
-            <path className="focus-arm-resting" d="M54 118 Q71 142 91 151" />
+            <g className="focus-arm-resting">
+              <path className="otter-limb-line" d="M54 120 Q70 142 89 150" />
+              <path className="otter-limb-fur" d="M54 120 Q70 142 89 150" />
+              <ellipse className="focus-paw" cx="92" cy="151" rx="9" ry="7" />
+            </g>
             <g className="focus-scratch-arm">
-              <path d="M54 118 Q48 91 67 68" />
-              <ellipse className="focus-paw" cx="68" cy="65" rx="8" ry="7" />
-              <path className="scratch-lines" d="M74 58 L80 53 M77 64 L84 62" />
+              <path className="otter-limb-line" d="M54 120 Q47 92 64 72" />
+              <path className="otter-limb-fur" d="M54 120 Q47 92 64 72" />
+              <ellipse className="focus-paw" cx="67" cy="66" rx="8.5" ry="7.5" />
+              <path className="scratch-lines" d="M75 57 L81 52 M78 64 L85 62" />
             </g>
             <g className="focus-writing-arm">
-              <path d="M166 117 Q153 139 132 151" />
-              <ellipse className="focus-paw" cx="129" cy="151" rx="9" ry="7" />
+              <path className="otter-limb-line" d="M166 119 Q153 139 134 149" />
+              <path className="otter-limb-fur" d="M166 119 Q153 139 134 149" />
+              <ellipse className="focus-paw" cx="130" cy="151" rx="9.5" ry="7.5" />
               <g className="focus-pencil">
                 <path className="pencil-body" d="M129 150 L151 132" />
                 <path className="pencil-tip" d="M126 153 L130 148" />

@@ -1,15 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 150">
-  <g fill="none" stroke="#36554c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="60" y="24" width="20" height="24" fill="#5f8f76"/>
-    <path d="M42 24V12q0-8 8-8h56q16 0 16 16v16h-16V24z" fill="#5f8f76"/>
-    <rect x="50" y="42" width="40" height="18" rx="5" fill="#5f8f76"/>
-    <rect x="24" y="58" width="92" height="88" rx="20" fill="#7aaf8e"/>
-    <path d="M40 76v46" stroke="#fff5df" stroke-width="7" opacity=".45"/>
-    <path d="M132 132h88q-6 14-44 14t-44-14z" fill="#89afc4"/>
-    <circle cx="186" cy="62" r="10" fill="#bfe3ea"/>
-    <circle cx="162" cy="86" r="11" fill="#bfe3ea"/>
-    <circle cx="198" cy="84" r="14" fill="#bfe3ea"/>
-    <rect x="138" y="96" width="76" height="38" rx="18" fill="#d79283"/>
-    <path d="M154 108h28" stroke="#fff5df" stroke-width="6" opacity=".5"/>
+  <g stroke="#5a3d2b" stroke-width="11" stroke-linecap="round" stroke-linejoin="round">
+    <!-- bubbles resting on the bars -->
+    <g fill="#e6f1ef" stroke-width="6.5">
+      <circle cx="48" cy="62" r="17"/>
+      <circle cx="94" cy="68" r="11"/>
+      <circle cx="152" cy="54" r="15"/>
+      <circle cx="203" cy="50" r="10"/>
+    </g>
+    <path d="M40 58C41 54 44 51 48 50M146 51C147 48 149 46 152 45" fill="none" stroke="#fff8ea" stroke-width="5"/>
+    <!-- rose soap bar -->
+    <rect x="20" y="78" width="110" height="46" rx="17" fill="#e3a3a0"/>
+    <path d="M36 90H72" fill="none" stroke="#fff8ea" stroke-width="8" opacity=".75"/>
+    <!-- sage soap bar, propped on the rose one -->
+    <g transform="rotate(-9 170 96)">
+      <rect x="116" y="72" width="108" height="46" rx="17" fill="#9bb58a"/>
+      <path d="M132 84H166" fill="none" stroke="#fff8ea" stroke-width="8" opacity=".7"/>
+    </g>
+    <!-- teal soap dish, in front of the bars -->
+    <path d="M8 112H232C230 134 216 144.5 196 144.5H44C24 144.5 10 134 8 112z" fill="#6fa7a0"/>
+    <path d="M26 124C32 132 42 135 56 135" fill="none" stroke="#fff8ea" stroke-width="7" opacity=".5"/>
   </g>
 </svg>

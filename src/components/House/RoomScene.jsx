@@ -42,6 +42,7 @@ const RoomScene = ({ room, decorations, availableItems = [], accessoryItems = []
         <span className="window-cloud cloud-one" />
         <span className="window-cloud cloud-two" />
       </div>
+      <div className="room-window-sill" aria-hidden="true" />
       <div className="otter-at-home">
         <Otter
           equipped={equipped}

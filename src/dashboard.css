@@ -42,44 +42,52 @@ h2 { font-size: 1.65rem; }
 .otter-scene.state-focusing .otter-message, .otter-scene.state-loud .otter-message, .otter-scene.state-celebrating .otter-message { opacity: 1; transform: translate(-50%, 0); }
 .otter { bottom: -18px; height: 215px; left: 10px; position: absolute; transform-origin: 50% 90%; width: 210px; }
 .otter-svg { height: 100%; overflow: visible; width: 100%; }
-.otter-blob { fill: #b98155; stroke: #25433d; stroke-linejoin: round; stroke-width: 5; transform-box: fill-box; transform-origin: center bottom; }
-.otter-tail { fill: #a06f47; stroke: #25433d; stroke-linejoin: round; stroke-width: 5; }
-.otter-ear circle { fill: #a06f47; stroke: #25433d; stroke-width: 5; }
-.otter-ear-inner { fill: #e8a98a; }
-.otter-belly { fill: #f6e3c6; stroke: #25433d; stroke-width: 4; }
-.otter-muzzle { fill: #f8ead3; stroke: #25433d; stroke-width: 4; }
-.otter-nose { fill: #25433d; }
-.otter-whiskers { fill: none; opacity: .8; stroke: #7a5233; stroke-linecap: round; stroke-width: 3; }
-.otter-arm, .otter-leg { fill: none; stroke: #25433d; stroke-linecap: round; stroke-linejoin: round; stroke-width: 5; transform-box: fill-box; transition: transform .28s ease; }
-.otter-arm { transform-box: view-box; }
-.otter-arm-left { transform-origin: 50px 110px; }.otter-arm-right { transform-origin: 170px 110px; }
-.otter-leg-left { transform-origin: 82px 169px; }.otter-leg-right { transform-origin: 143px 170px; }
+.otter-blob { fill: #b5774c; stroke: #5a3d2b; stroke-linejoin: round; stroke-width: 4; transform-box: fill-box; transform-origin: center bottom; }
+.otter-tail { fill: #9e6340; stroke: #5a3d2b; stroke-linejoin: round; stroke-width: 4; }
+.otter-tail-shade { fill: #5a3d2b; opacity: .18; }
+.otter-ear circle { fill: #9e6340; stroke: #5a3d2b; stroke-width: 4; }
+.otter-ear-inner { fill: #eba59c; }
+.otter-shade { fill: #5a3d2b; opacity: .15; }
+.otter-shine { fill: #fff8ea; opacity: .35; }
+.otter-belly { fill: #fbebd2; stroke: #5a3d2b; stroke-width: 3; }
+.otter-belly-shade { fill: #5a3d2b; opacity: .1; }
+.otter-belly-shine { fill: #fffaf2; opacity: .9; }
+.otter-muzzle { fill: #fdf3e3; stroke: #5a3d2b; stroke-linejoin: round; stroke-width: 3; }
+.otter-blush { fill: #ec8478; opacity: .4; }
+.otter-nose { fill: #3f2a1e; }
+.otter-nose-shine { fill: none; opacity: .55; stroke: #fff8ea; stroke-linecap: round; stroke-width: 2.5; }
+.otter-whiskers { fill: none; opacity: .5; stroke: #5a3d2b; stroke-linecap: round; stroke-width: 2.5; }
+.otter-limb-line { fill: none; stroke: #5a3d2b; stroke-linecap: round; stroke-width: 21; }
+.otter-limb-fur { fill: none; stroke: #b5774c; stroke-linecap: round; stroke-width: 13; }
+.otter-paw, .otter-foot, .focus-paw { fill: #b5774c; stroke: #5a3d2b; stroke-width: 4; }
+.otter-toes { fill: none; opacity: .5; stroke: #5a3d2b; stroke-linecap: round; stroke-width: 2.5; }
+.otter-arm, .otter-leg { transform-box: view-box; transition: transform .28s ease; }
+.otter-arm-left { transform-origin: 52px 116px; }.otter-arm-right { transform-origin: 168px 116px; }
+.otter-leg-left { transform-origin: 84px 172px; }.otter-leg-right { transform-origin: 136px 172px; }
 .otter-eye { transform-box: fill-box; transform-origin: center; }
-.otter-eye ellipse { fill: #25433d; }.otter-eye circle { fill: #fffaf0; }
-.otter-mouth { fill: none; opacity: 0; stroke: #25433d; stroke-linecap: round; stroke-linejoin: round; stroke-width: 5; }
+.otter-eye ellipse { fill: #3f2a1e; }.otter-eye circle { fill: #fffaf0; }
+.otter-mouth { fill: none; opacity: 0; stroke: #3f2a1e; stroke-linecap: round; stroke-linejoin: round; stroke-width: 3.5; }
 .otter-mouth-smile { opacity: 1; }
-.otter-mouth-loud, .otter-mouth-celebrate { fill: #25433d; }
-.otter-heart { fill: #e98769; }
-.otter-glasses { fill: rgba(164, 216, 228, .55); stroke: #25433d; stroke-linecap: round; stroke-width: 4; }
+.otter-mouth-loud, .otter-mouth-celebrate { fill: #6e3b2e; }
+.otter-heart { fill: #e5786a; }
+.otter-glasses { fill: rgba(164, 216, 228, .45); stroke: #5a3d2b; stroke-linecap: round; stroke-width: 3.5; }
 .otter-glasses .glasses-shine { fill: none; opacity: .7; stroke: #fffaf0; stroke-width: 2; }
-.otter-hat path:first-child { fill: #7198d2; stroke: #25433d; stroke-linejoin: round; stroke-width: 4; }
-.otter-hat path:not(:first-child) { fill: none; stroke: #f8d97a; stroke-width: 4; }.otter-hat circle { fill: #e98769; stroke: #25433d; stroke-width: 3; }.otter-hat .hat-dot { fill: #fffaf0; stroke: none; }
-.otter-bow path { fill: #f8d97a; stroke: #25433d; stroke-linejoin: round; stroke-width: 4; }.otter-bow circle { fill: #e98769; stroke: #25433d; stroke-width: 3; }
+.otter-hat path:first-child { fill: #7f9cc0; stroke: #5a3d2b; stroke-linejoin: round; stroke-width: 3.5; }
+.otter-hat path:not(:first-child) { fill: none; stroke: #e8b44f; stroke-linecap: round; stroke-width: 4; }.otter-hat circle { fill: #d9785a; stroke: #5a3d2b; stroke-width: 3; }.otter-hat .hat-dot { fill: #fffaf0; stroke: none; }
+.otter-bow path { fill: #e8b44f; stroke: #5a3d2b; stroke-linejoin: round; stroke-width: 3.5; }.otter-bow circle { fill: #d9785a; stroke: #5a3d2b; stroke-width: 3; }
 .focus-chair, .focus-workspace { display: none; }
-.focus-chair { fill: none; stroke: #7198d2; stroke-linecap: round; stroke-linejoin: round; stroke-width: 12; }
-.focus-arm-resting, .focus-writing-arm > path, .focus-scratch-arm > path:first-child { fill: none; stroke: #25433d; stroke-linecap: round; stroke-width: 7; }
-.focus-scratch-arm { opacity: 0; transform-box: view-box; transform-origin: 54px 118px; }
-.scratch-lines { fill: none; stroke: #d99a58; stroke-linecap: round; stroke-width: 3; }
-.focus-writing-arm { transform-box: view-box; transform-origin: 166px 117px; }
-.focus-paw { fill: #b98155; stroke: #25433d; stroke-width: 4; }
+.focus-chair { fill: none; stroke: #7f9cc0; stroke-linecap: round; stroke-linejoin: round; stroke-width: 12; }
+.focus-scratch-arm { opacity: 0; transform-box: view-box; transform-origin: 54px 120px; }
+.scratch-lines { fill: none; stroke: #d9a066; stroke-linecap: round; stroke-width: 3; }
+.focus-writing-arm { transform-box: view-box; transform-origin: 166px 119px; }
 .focus-pencil { transform-box: view-box; transform-origin: 129px 151px; }
-.pencil-body { fill: none; stroke: #f4c968; stroke-linecap: round; stroke-width: 6; }
-.pencil-tip { fill: none; stroke: #25433d; stroke-linecap: round; stroke-width: 3; }
-.pencil-eraser { fill: none; stroke: #e98769; stroke-linecap: round; stroke-width: 6; }
-.desk-top { fill: #d99a58; stroke: #25433d; stroke-linejoin: round; stroke-width: 4; }
-.desk-front { fill: #b9753f; stroke: #25433d; stroke-linejoin: round; stroke-width: 4; }
-.desk-leg { fill: none; stroke: #25433d; stroke-linecap: round; stroke-width: 7; }
-.focus-paper > path:first-child { fill: #fffaf0; stroke: #25433d; stroke-linejoin: round; stroke-width: 3; }
+.pencil-body { fill: none; stroke: #e8b44f; stroke-linecap: round; stroke-width: 6; }
+.pencil-tip { fill: none; stroke: #5a3d2b; stroke-linecap: round; stroke-width: 3; }
+.pencil-eraser { fill: none; stroke: #e3a3a0; stroke-linecap: round; stroke-width: 6; }
+.desk-top { fill: #d9a066; stroke: #5a3d2b; stroke-linejoin: round; stroke-width: 4; }
+.desk-front { fill: #a86f45; stroke: #5a3d2b; stroke-linejoin: round; stroke-width: 4; }
+.desk-leg { fill: none; stroke: #5a3d2b; stroke-linecap: round; stroke-width: 7; }
+.focus-paper > path:first-child { fill: #fffaf0; stroke: #5a3d2b; stroke-linejoin: round; stroke-width: 3; }
 .paper-line { fill: none; stroke: #a9c8cf; stroke-linecap: round; stroke-width: 2; }
 .sparkle { opacity: 0; pointer-events: none; position: absolute; z-index: 5; }
 .sparkle { color: #d76d54; font-size: 28px; }.sparkle.one { right: 0; top: 42px; }.sparkle.two { left: 0; top: 105px; }
@@ -87,7 +95,7 @@ h2 { font-size: 1.65rem; }
 .state-idle .otter { animation: otter-float 3.2s ease-in-out infinite; }
 .state-idle .otter-eye { animation: otter-blink 4.5s ease-in-out infinite; }
 .state-focusing .focus-chair, .state-focusing .focus-workspace { display: initial; }
-.state-focusing .otter-leg, .state-focusing .otter-arm, .state-focusing .otter-belly, .state-focusing .otter-heart { display: none; }
+.state-focusing .otter-leg, .state-focusing .otter-arm, .state-focusing .otter-belly, .state-focusing .otter-belly-shade, .state-focusing .otter-belly-shine, .state-focusing .otter-heart { display: none; }
 .state-focusing .focus-writing-arm { animation: otter-write .65s ease-in-out infinite alternate; }
 .state-focusing .focus-pencil { animation: pencil-write .65s ease-in-out infinite alternate; }
 .state-focusing .focus-arm-resting { animation: resting-paw-pause 120s linear infinite; }
@@ -95,11 +103,11 @@ h2 { font-size: 1.65rem; }
 .state-focusing .paper-line.line-two { animation: writing-appear 2.6s ease-in-out infinite; }
 .state-focusing .otter-eye { animation: otter-blink 4.5s ease-in-out infinite; }
 .state-loud .otter { animation: otter-startle .4s ease-out both; }
-.state-loud .otter-arm-left { transform: rotate(100deg); }.state-loud .otter-arm-right { transform: rotate(-100deg); }
+.state-loud .otter-arm-left { transform: rotate(88deg); }.state-loud .otter-arm-right { transform: rotate(-88deg); }
 .state-loud .otter-eye { transform: scale(1.12); }
 .state-loud .otter-mouth-smile { opacity: 0; }.state-loud .otter-mouth-loud { opacity: 1; }
 .state-celebrating .otter { animation: otter-celebrate .72s ease-in-out infinite; }
-.state-celebrating .otter-arm-left { transform: rotate(128deg); }.state-celebrating .otter-arm-right { transform: rotate(-128deg); }
+.state-celebrating .otter-arm-left { transform: rotate(110deg); }.state-celebrating .otter-arm-right { transform: rotate(-110deg); }
 .state-celebrating .otter-leg-left { animation: otter-feet-left .72s ease-in-out infinite; }.state-celebrating .otter-leg-right { animation: otter-feet-right .72s ease-in-out infinite; }
 .state-celebrating .otter-mouth-smile { opacity: 0; }.state-celebrating .otter-mouth-celebrate { opacity: 1; }
 .state-celebrating .sparkle { animation: sparkle-pop .8s ease-in-out infinite alternate; opacity: 1; }
@@ -623,19 +631,60 @@ legend { font-size: .88rem; font-weight: 700; margin-bottom: 10px; }
 }
 
 /* One proportional stage keeps furniture and its surfaces aligned on phones too. */
-.room-scene { --wall: #dce8d8; --floor: #c99e77; aspect-ratio: 900 / 440; min-height: 0; padding: 0; container-type: inline-size; background: linear-gradient(var(--wall) 0 68%, var(--floor) 68%); }
-.room-bedroom { --wall: #e3dff0; --floor: #baa087; }
-.room-kitchen { --wall: #f3e4c5; --floor: #c9a17b; }
-.room-bathroom { --wall: #d9ebea; --floor: #acc5be; }
-.room-office { --wall: #e5e7d9; --floor: #bc997a; }
-.room-scene::after { height: 1.8%; background: #a48062; }
-.room-bathroom::before { transform: none; background: repeating-linear-gradient(90deg, transparent 0 11%, #ffffff40 11% 11.3%), repeating-linear-gradient(0deg, transparent 0 30%, #ffffff40 30% 31%); }
+/* Cozy room shell: warm wall + soft pattern + chair-rail wainscot, honey plank floor, wooden baseboard. */
+.room-scene {
+  --wall: #e6e2c3; --wall-pattern: none; --panel: #eddcbc;
+  --dot: rgba(255, 248, 234, .7);
+  --dots: radial-gradient(9% 9% at 25% 25%, var(--dot) 0 60%, transparent 100%) 0 0 / 4% 8.18%, radial-gradient(9% 9% at 75% 75%, var(--dot) 0 60%, transparent 100%) 0 0 / 4% 8.18%;
+  --wainscot: linear-gradient(transparent 0 48%, #fbf1dc 48% 49.3%, rgba(90, 61, 43, .2) 49.3% 49.7%, var(--panel) 49.7%), repeating-linear-gradient(90deg, rgba(90, 61, 43, .07) 0 .2%, rgba(255, 248, 234, .3) .2% .4%, transparent .4% 3.6%) 0 100% / 100% 50.3% no-repeat;
+  --glow: radial-gradient(60% 80% at 22% 4%, rgba(255, 231, 163, .5), transparent 72%);
+  --shade: rgba(90, 61, 43, .12);
+  --floor-top: #dfb487; --floor: #d0a074; --seam: rgba(90, 61, 43, .2);
+  --base-hi: #d29a62; --base: #bb8352; --base-lo: #8a5a3a;
+  aspect-ratio: 900 / 440; min-height: 0; padding: 0; container-type: inline-size;
+  background: var(--glow), radial-gradient(140% 120% at 50% 18%, transparent 50%, var(--shade)), var(--wainscot), var(--wall-pattern), var(--wall);
+}
+.room-living { --wall-pattern: repeating-linear-gradient(90deg, transparent 0 2.2%, rgba(255, 248, 234, .42) 2.2% 4.4%), repeating-linear-gradient(90deg, transparent 0 3.2%, rgba(90, 61, 43, .05) 3.2% 3.4%, transparent 3.4% 4.4%); }
+.room-bedroom { --wall: #e4cfcc; --panel: #d8bcb9; --dot: rgba(255, 248, 234, .5); --wall-pattern: var(--dots); --shade: rgba(70, 50, 80, .22); --glow: radial-gradient(26% 46% at 89% 66%, rgba(255, 231, 163, .7), rgba(255, 231, 163, .25) 55%, transparent 80%), linear-gradient(rgba(70, 60, 110, .1), transparent 55%); --floor-top: #d2a37b; --floor: #bf8e68; }
+.room-kitchen { --wall: #f6e2b6; --dot: rgba(217, 120, 90, .2); --wall-pattern: var(--dots); --wainscot: none; }
+.room-bathroom {
+  --wall: #f4e5ca; --dot: rgba(111, 167, 160, .22); --wall-pattern: var(--dots);
+  --wainscot: linear-gradient(transparent 0 45%, #fbf1dc 45% 46.5%, rgba(90, 61, 43, .2) 46.5% 46.9%, transparent 46.9%), repeating-linear-gradient(90deg, #fbf3e2 0 .3%, transparent .3% 4%) 0 100% / 100% 53.1% no-repeat, repeating-linear-gradient(180deg, #fbf3e2 0 1%, transparent 1% 15.45%) 0 100% / 100% 53.1% no-repeat, linear-gradient(transparent 0 46.9%, #d6e2cf 46.9%);
+  --base-hi: #fbf1dc; --base: #ead9bd; --base-lo: #b89e7c;
+}
+.room-office { --wall: #f2dcc3; --panel: #d3d6b2; --dot: rgba(91, 140, 90, .2); --wall-pattern: var(--dots); }
+.room-scene::before {
+  transform: none; inset: auto 0 0; height: 32%;
+  background:
+    linear-gradient(rgba(90, 61, 43, .18), transparent 20%),
+    linear-gradient(transparent 0 calc(16% - 1px), var(--seam) calc(16% - 1px) 16%, transparent 16% calc(34% - 1px), var(--seam) calc(34% - 1px) 34%, transparent 34% calc(54% - 1px), var(--seam) calc(54% - 1px) 54%, transparent 54% calc(76% - 1px), var(--seam) calc(76% - 1px) 76%, transparent 76%),
+    linear-gradient(90deg, var(--seam) 0 1.5px, rgba(255, 248, 234, .13) 1.5px 45%, transparent 45%) 0 0 / 27% 16% repeat-x,
+    linear-gradient(90deg, var(--seam) 0 1.5px, transparent 1.5px 52%, rgba(90, 61, 43, .05) 52%) 40% 19.5% / 31% 18% repeat-x,
+    linear-gradient(90deg, var(--seam) 0 1.5px, rgba(255, 248, 234, .13) 1.5px 38%, transparent 38%) 15% 42.5% / 25% 20% repeat-x,
+    linear-gradient(90deg, var(--seam) 0 1.5px, transparent 1.5px 60%, rgba(90, 61, 43, .05) 60%) 70% 69.2% / 29% 22% repeat-x,
+    linear-gradient(90deg, var(--seam) 0 1.5px, rgba(255, 248, 234, .13) 1.5px 42%, transparent 42%) 30% 100% / 33% 24% repeat-x,
+    linear-gradient(var(--floor-top), var(--floor));
+}
+.room-bathroom::before {
+  background:
+    linear-gradient(rgba(90, 61, 43, .16), transparent 20%),
+    repeating-linear-gradient(90deg, #f7ecd8 0 .25%, transparent .25% 6%),
+    repeating-linear-gradient(180deg, #f7ecd8 0 1.4%, transparent 1.4% 25%),
+    conic-gradient(rgba(90, 61, 43, .07) 25%, transparent 0 50%, rgba(90, 61, 43, .07) 0 75%, transparent 0) 0 0 / 12% 50%,
+    linear-gradient(#e7cca7, #dab993);
+}
+.room-scene::after { bottom: 31%; height: 3%; background: linear-gradient(var(--base-lo) 0 1.5px, var(--base-hi) 1.5px 30%, var(--base) 30% calc(100% - 1.5px), var(--base-lo) calc(100% - 1.5px)); }
 .room-scene-label { position: absolute; top: 4%; left: 3%; padding: 6px 10px; }
-.room-window { top: 17%; right: 5%; width: 21%; height: 30%; border-width: 6px; border-radius: 8px; transform: none; }
-.room-window::before { top: 49%; height: 5px; }
-.room-window::after { left: 49%; width: 5px; }
-.room-bedroom .room-window { background: #8d9dbb; }
+.room-window { top: 17%; right: 5%; width: 21%; height: 30%; border: clamp(3px, .8cqw, 8px) solid #e8c290; border-radius: clamp(6px, 1.6cqw, 16px); transform: none; background: linear-gradient(#9fcfd9, #c3e1da 62%, #f5e2bc); box-shadow: 0 0 0 clamp(1.5px, .25cqw, 2.5px) #5a3d2b, inset 0 0 0 clamp(1px, .18cqw, 2px) rgba(90, 61, 43, .45), inset 0 .5cqw 0 .18cqw rgba(90, 61, 43, .1); }
+.room-window::before, .room-window::after { background: #e8c290; box-shadow: 0 0 0 1px rgba(90, 61, 43, .35); }
+.room-window::before { top: 48.5%; height: clamp(2px, .55cqw, 6px); }
+.room-window::after { left: 48.5%; width: clamp(2px, .55cqw, 6px); }
+.window-sun { background: #f8d26a; box-shadow: 0 0 0 .7cqw rgba(255, 231, 163, .45); }
+.room-window-sill { position: absolute; top: 46.2%; right: 4.1%; width: 22.8%; height: 2.6%; z-index: 1; border: clamp(1.5px, .25cqw, 2.5px) solid #5a3d2b; border-radius: clamp(3px, .6cqw, 6px); background: linear-gradient(#f0d3a6 0 45%, #d9a066 45%); box-shadow: 0 .45cqw 0 rgba(90, 61, 43, .14); }
+.room-bedroom .room-window { background: radial-gradient(.25cqw .25cqw at 14% 22%, #fff1c7 0 60%, transparent 100%), radial-gradient(.2cqw .2cqw at 34% 64%, #fff1c7 0 60%, transparent 100%), radial-gradient(.18cqw .18cqw at 9% 72%, #fff1c7 0 60%, transparent 100%), radial-gradient(.22cqw .22cqw at 62% 84%, #fff1c7 0 60%, transparent 100%), radial-gradient(.18cqw .18cqw at 40% 12%, #fff1c7 0 60%, transparent 100%), radial-gradient(70% 70% at 78% 26%, rgba(255, 231, 163, .22), transparent 70%), linear-gradient(#3c4673, #59608f 60%, #8a7aa0); }
+.room-bedroom .window-moon { filter: drop-shadow(0 0 .7cqw rgba(255, 231, 163, .7)); }
 .room-bedroom .window-cloud { display: none; }
+.room-kitchen .room-window-sill { display: none; }
 .room-fixtures { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none; }
 .room-kitchen .otter-at-home { left: 39%; }
 .room-bathroom .otter-at-home { left: 30%; }
