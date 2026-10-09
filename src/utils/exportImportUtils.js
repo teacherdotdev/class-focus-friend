@@ -1,4 +1,5 @@
 import { exportClassroomSave, importClassroomSave, SAVE_FILE_APP_NAME } from "./storage.js";
+import { t } from "../i18n";
 
 const isFiniteNonNegativeNumber = (value) => {
   return Number.isFinite(value) && value >= 0;
@@ -36,32 +37,16 @@ const openSubstituteHandoff = (filename) => {
   const handoffWindow = window.open("", "_blank");
   if (!handoffWindow) return;
 
-  const instructions = `Hello,
+  const instructions = t("handoff.letter", { url: window.location.origin, filename });
 
-Thank you for covering our class today. On-task Otter is ready to use at:
-${window.location.origin}
-
-The classroom's saved setup is in the On-task Otter Classroom Save JSON file that was shared with you. Please do not edit or rename that file.
-
-To use it:
-1. Open the On-task Otter webpage above.
-2. Select "Save Classroom Setup" near the top of the page.
-3. Select "Restore Classroom Save."
-4. Choose the downloaded file named "${filename}".
-5. The page will refresh with our timer settings, points, rewards, and classroom setup.
-
-When you are finished, you can create a new Classroom Save File from the same menu if you would like to pass along the updated classroom progress.
-
-Thank you!`;
-
-  handoffWindow.document.title = "On-task Otter Substitute Handoff";
+  handoffWindow.document.title = t("handoff.title");
   handoffWindow.document.body.innerHTML = `
     <main>
-      <p class="label">On-task Otter Substitute Handoff</p>
-      <h1>Ready-to-send instructions</h1>
-      <p>Copy this message into an email, text, or substitute plan. The classroom save file is downloading separately.</p>
-      <textarea aria-label="Substitute teacher instructions" readonly>${instructions}</textarea>
-      <button type="button">Copy instructions</button>
+      <p class="label">${t("handoff.title")}</p>
+      <h1>${t("handoff.pageTitle")}</h1>
+      <p>${t("handoff.pageIntro")}</p>
+      <textarea aria-label="${t("handoff.instructionsLabel")}" readonly>${instructions}</textarea>
+      <button type="button">${t("handoff.copy")}</button>
       <p class="status" aria-live="polite"></p>
     </main>
     <style>
@@ -83,7 +68,7 @@ Thank you!`;
       textarea.select();
       button.addEventListener("click", async () => {
         await navigator.clipboard.writeText(textarea.value);
-        status.textContent = "Instructions copied.";
+        status.textContent = ${JSON.stringify(t("handoff.copied"))};
       });
     </script>
   `;

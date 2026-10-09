@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 150">
+  <g stroke="#5a3d2b" stroke-width="11" stroke-linecap="round" stroke-linejoin="round">
+    <!-- bubbles resting on the bars -->
+    <g fill="#e6f1ef" stroke-width="6.5">
+      <circle cx="48" cy="62" r="17"/>
+      <circle cx="94" cy="68" r="11"/>
+      <circle cx="152" cy="54" r="15"/>
+      <circle cx="203" cy="50" r="10"/>
+    </g>
+    <path d="M40 58C41 54 44 51 48 50M146 51C147 48 149 46 152 45" fill="none" stroke="#fff8ea" stroke-width="5"/>
+    <!-- rose soap bar -->
+    <rect x="20" y="78" width="110" height="46" rx="17" fill="#e3a3a0"/>
+    <path d="M36 90H72" fill="none" stroke="#fff8ea" stroke-width="8" opacity=".75"/>
+    <!-- sage soap bar, propped on the rose one -->
+    <g transform="rotate(-9 170 96)">
+      <rect x="116" y="72" width="108" height="46" rx="17" fill="#9bb58a"/>
+      <path d="M132 84H166" fill="none" stroke="#fff8ea" stroke-width="8" opacity=".7"/>
+    </g>
+    <!-- teal soap dish, in front of the bars -->
+    <path d="M8 112H232C230 134 216 144.5 196 144.5H44C24 144.5 10 134 8 112z" fill="#6fa7a0"/>
+    <path d="M26 124C32 132 42 135 56 135" fill="none" stroke="#fff8ea" stroke-width="7" opacity=".5"/>
+  </g>
+</svg>

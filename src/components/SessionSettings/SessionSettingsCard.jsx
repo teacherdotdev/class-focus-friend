@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useTranslation } from "../../i18n";
 
 const SessionSettingsCard = ({ session, displayCountdown, children }) => {
+  const { t } = useTranslation();
   const {
     timer,
     activities,
@@ -46,23 +48,23 @@ const SessionSettingsCard = ({ session, displayCountdown, children }) => {
     <>
       <div className="settings-heading">
         <div>
-          <h2 id="settings-title">Create a session preset.</h2>
+          <h2 id="settings-title">{t("preset.title")}</h2>
         </div>
       </div>
       <label className="preset-name">
-        Preset name
+        {t("preset.name")}
         <input
           type="text"
           form="save-session-preset"
           required
           value={favoriteName}
           maxLength="50"
-          placeholder="e.g. Quiet reading"
+          placeholder={t("preset.placeholder")}
           onChange={(event) => setFavoriteName(event.target.value)}
         />
       </label>
-      <fieldset className="session-duration" disabled={timer.isRunning} aria-label="Session length">
-        <div className="quick-durations" aria-label="Common session lengths">
+      <fieldset className="session-duration" disabled={timer.isRunning} aria-label={t("preset.length")}>
+        <div className="quick-durations" aria-label={t("preset.commonLengths")}>
           {[5, 10, 15, 20, 30].map((minutes) => (
             <button
               className={durationMinutes === minutes ? "selected" : ""}
@@ -70,13 +72,13 @@ const SessionSettingsCard = ({ session, displayCountdown, children }) => {
               key={minutes}
               onClick={() => chooseDuration(minutes * 60)}
             >
-              {minutes} min
+              {t("session.minutesShort", { minutes })}
             </button>
           ))}
         </div>
         <div className="duration-inputs">
           <label>
-            Custom minutes
+            {t("preset.customMinutes")}
             <input
               type="number"
               name="minutes"
@@ -91,25 +93,25 @@ const SessionSettingsCard = ({ session, displayCountdown, children }) => {
       </fieldset>
       <label className="checkbox-option countdown-option">
         <input type="checkbox" checked={showCountdown} onChange={(event) => setShowCountdown(event.target.checked)} />
-        Show countdown
+        {t("session.showCountdown")}
       </label>
       {!showCountdown && <label className="hidden-countdown-choice">
-        While time is hidden
+        {t("preset.whileHidden")}
         <select value={hiddenTimerMode} onChange={(event) => setHiddenTimerMode(event.target.value)}>
-          <option value="none">No messages</option>
-          <option value="generic">General encouragements</option>
-          <option value="progress">Encouragements that follow progress</option>
+          <option value="none">{t("preset.noMessages")}</option>
+          <option value="generic">{t("preset.genericMessages")}</option>
+          <option value="progress">{t("preset.progressMessages")}</option>
         </select>
       </label>}
       {children}
       <form id="save-session-preset" className="save-favorite" onSubmit={saveFavorite}>
         <button className="outline" type="submit" disabled={timer.isRunning || !favoriteName.trim()}>
-          Save preset
+          {t("preset.save")}
         </button>
       </form>
       {favoriteSessions.length > 0 && (
         <section className="favorite-sessions">
-          <h3>Saved presets</h3>
+          <h3>{t("preset.saved")}</h3>
           <ul>
               {favoriteSessions.map((favorite) => (
                 <li key={favorite.id}>
@@ -119,15 +121,15 @@ const SessionSettingsCard = ({ session, displayCountdown, children }) => {
                     onClick={() => chooseFavorite(favorite)}
                   >
                     <b>{favorite.name}</b>
-                    <span>{favorite.minutes} min · {favorite.trackSound === false ? "No sound meter" : (Number.isFinite(favorite.soundThreshold) ? `Sound limit ${favorite.soundThreshold}%` : "Tracks sound")}</span>
+                    <span>{t("session.minutesShort", { minutes: favorite.minutes })} · {favorite.trackSound === false ? t("session.noSoundMeter") : (Number.isFinite(favorite.soundThreshold) ? t("preset.soundLimitDetail", { percent: favorite.soundThreshold }) : t("session.tracksSound"))}</span>
                   </button>
                   <button
                     className="favorite-delete"
                     type="button"
-                    aria-label={`Delete ${favorite.name}`}
+                    aria-label={t("preset.deleteNamed", { name: favorite.name })}
                     onClick={() => deleteFavoriteSession(favorite.id)}
                   >
-                    Delete
+                    {t("preset.delete")}
                   </button>
                 </li>
               ))}

@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import RoomTabs from "./RoomTabs";
 import RoomScene from "./RoomScene";
 import Modal from "../Modal/Modal";
+import { useTranslation } from "../../i18n";
 
 const HouseCard = ({ house, rewards, focusMode = false }) => {
+  const { t } = useTranslation();
   const [openShop, setOpenShop] = useState(null);
   const [editingMode, setEditingMode] = useState(null);
   const [selectedItem, setSelectedItem] = useState(null);
@@ -47,16 +49,16 @@ const HouseCard = ({ house, rewards, focusMode = false }) => {
     <section className="house-card" id="dashboard">
       {!focusMode && <div className="house-heading">
         <div>
-          <p className="card-label">{otterName || "Otter"}'s house</p>
-          <h2>{otterName || "Otter"} is ready to focus</h2>
+          <p className="card-label">{t("house.label", { name: otterName || t("otter.default") })}</p>
+          <h2>{t("house.title", { name: otterName || t("otter.default") })}</h2>
         </div>
         <div className="house-stats">
           <p className="house-class-points">
-            <span aria-hidden="true">★</span> <strong>{points}</strong> class points
+            <span aria-hidden="true">★</span> <strong>{points}</strong> {t("house.classPoints")}
           </p>
           <div className="house-progress">
-          <span><b>{activeRoomItems.length - itemsStillNeeded}</b> of {activeRoomItems.length} room items bought</span>
-          <small>{allRoomsUnlocked ? "Every room is available!" : "Buy every item to open the next room"}</small>
+          <span><b>{activeRoomItems.length - itemsStillNeeded}</b> {t("house.roomItems", { total: activeRoomItems.length })}</span>
+          <small>{allRoomsUnlocked ? t("house.allRooms") : t("house.nextRoom")}</small>
           </div>
         </div>
       </div>}
@@ -64,10 +66,10 @@ const HouseCard = ({ house, rewards, focusMode = false }) => {
       {!focusMode && <div className={`house-actions ${showActions ? "" : "collapsed"}`}>
         {showActions && (
           <>
-            <button className="outline" type="button" onClick={() => setOpenShop("rooms")}>Choose room</button>
-            <button className="outline" type="button" onClick={() => { setEditingMode((mode) => mode === "decorations" ? null : "decorations"); setSelectedItem(null); }}>Decorate room</button>
-            <button className="outline" type="button" onClick={() => { setEditingMode((mode) => mode === "accessories" ? null : "accessories"); setSelectedItem(null); }}>Dress up otter</button>
-            <button className="outline" type="button" onClick={() => setOpenShop("name")}>Name your otter</button>
+            <button className="outline" type="button" onClick={() => setOpenShop("rooms")}>{t("house.chooseRoom")}</button>
+            <button className="outline" type="button" onClick={() => { setEditingMode((mode) => mode === "decorations" ? null : "decorations"); setSelectedItem(null); }}>{t("house.decorate")}</button>
+            <button className="outline" type="button" onClick={() => { setEditingMode((mode) => mode === "accessories" ? null : "accessories"); setSelectedItem(null); }}>{t("house.dressUp")}</button>
+            <button className="outline" type="button" onClick={() => setOpenShop("name")}>{t("house.nameOtter")}</button>
           </>
         )}
         <button
@@ -76,7 +78,7 @@ const HouseCard = ({ house, rewards, focusMode = false }) => {
           aria-expanded={showActions}
           onClick={() => setShowActions((visible) => !visible)}
         >
-          {showActions ? "Hide house actions" : "Show house actions"}
+          {showActions ? t("house.hideActions") : t("house.showActions")}
         </button>
       </div>}
 
@@ -88,7 +90,7 @@ const HouseCard = ({ house, rewards, focusMode = false }) => {
         isCelebrating={isCelebrating}
         isFocusing={isFocusing}
         noiseTone={noiseTone}
-        otterName={otterName || "Otter"}
+        otterName={otterName || t("otter.default")}
         focusMode={focusMode}
         editingMode={focusMode ? null : editingMode}
         accessoryItems={rewards.accessories}
@@ -111,32 +113,32 @@ const HouseCard = ({ house, rewards, focusMode = false }) => {
           onClose={() => setOpenShop(null)}
           className="shop-modal"
           ariaLabelledBy="shop-title"
-          closeLabel="Close shop"
+          closeLabel={t("house.closeShop")}
         >
             {openShop === "name" ? (
               <form className="otter-name-modal" onSubmit={(event) => {
                 event.preventDefault();
                 setOpenShop(null);
               }}>
-                <p className="card-label">Your otter</p>
-                <h2 id="shop-title">What should we call your otter?</h2>
+                <p className="card-label">{t("house.yourOtter")}</p>
+                <h2 id="shop-title">{t("house.nameTitle")}</h2>
                 <label className="otter-name-field">
-                  <span>Otter&apos;s name</span>
+                  <span>{t("house.nameField")}</span>
                   <input
                     type="text"
                     value={otterName}
                     maxLength="30"
                     autoFocus
                     onChange={(event) => setOtterName(event.target.value)}
-                    placeholder="Otter"
+                    placeholder={t("otter.default")}
                   />
                 </label>
-                <button className="outline" type="submit">Save name</button>
+                <button className="outline" type="submit">{t("house.saveName")}</button>
               </form>
             ) : openShop === "rooms" ? (
               <div className="room-picker">
-                <p className="card-label">Otter&apos;s house</p>
-                <h2 id="shop-title">Choose a room to focus in</h2>
+                <p className="card-label">{t("house.otterHouse")}</p>
+                <h2 id="shop-title">{t("house.roomTitle")}</h2>
                 <RoomTabs
                   rooms={houseRooms}
                   activeRoom={activeRoom}

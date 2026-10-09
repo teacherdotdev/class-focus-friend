@@ -1,10 +1,13 @@
+import { useTranslation } from "../../i18n";
+
 const RoomTabs = ({ rooms, activeRoom, setActiveRoom, unlockedRoomIds, unlockAll }) => {
+  const { t } = useTranslation();
   
   return (
     <div 
       className="room-tabs" 
       role="tablist" 
-      aria-label="Rooms in the otter's house"
+      aria-label={t("rooms.label")}
     >
       {rooms.map((room) => {
         const isLocked = !unlockedRoomIds.includes(room.id) && !unlockAll;
@@ -24,9 +27,9 @@ const RoomTabs = ({ rooms, activeRoom, setActiveRoom, unlockedRoomIds, unlockAll
           </span>
           
           <span className="room-tab-copy">
-            <b>{room.name}</b>
+            <b>{t(`room.${room.id}.name`)}</b>
             <small>
-              {isLocked ? "Buy everything in the previous room" : "Available"}
+              {isLocked ? t("rooms.locked") : t("rooms.available")}
             </small>
           </span>
 

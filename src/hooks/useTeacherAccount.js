@@ -10,6 +10,7 @@ import {
   signIn,
   signOut,
 } from "../lib/teacherAccount.js";
+import { t } from "../i18n";
 
 const SAVE_DELAY_MS = 800;
 
@@ -80,7 +81,7 @@ export const useTeacherAccount = ({ classroomData, applyClassroom }) => {
   useEffect(() => {
     if (reconnected.current || !currentTeacher()) return;
     reconnected.current = true;
-    runAccountAction(refreshSession, "We could not reach your saved classroom.");
+    runAccountAction(refreshSession, t("account.errorReach"));
   }, [runAccountAction]);
 
   // Every change to the classroom goes up to the account a moment later, so a
@@ -114,12 +115,12 @@ export const useTeacherAccount = ({ classroomData, applyClassroom }) => {
     signIn: (email, password) =>
       runAccountAction(
         () => signIn(email, password),
-        "We could not sign you in. Please check the email and password.",
+        t("account.errorSignIn"),
       ),
     createAccount: (email, password) =>
       runAccountAction(
         () => createAccount(email, password),
-        "We could not create that account.",
+        t("account.errorCreate"),
       ),
     /** Empties the classroom kept in the account, alongside erasing this device. */
     eraseSavedClassroom: async () => {

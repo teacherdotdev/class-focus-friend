@@ -1,23 +1,25 @@
 import Link from "../Link/Link";
 import OtterMark from "../Otter/OtterMark";
+import { useTranslation } from "../../i18n";
 
-const accountButtonText = ({ teacher, saveState, isBusy }) => {
-  if (isBusy && teacher) return "☁ Opening your classroom…";
-  if (!teacher) return "☁ Sign in to save";
-  if (saveState === "saving") return "☁ Saving…";
-  if (saveState === "error") return "⚠ Not saved yet";
-  return "☁ Saved to your account";
+const accountButtonText = (t, { teacher, saveState, isBusy }) => {
+  if (isBusy && teacher) return t("header.opening");
+  if (!teacher) return t("header.signIn");
+  if (saveState === "saving") return t("header.saving");
+  if (saveState === "error") return t("header.notSaved");
+  return t("header.saved");
 };
 
 // The About and Privacy pages share this header, so classroom buttons only
 // appear when a classroom was handed to it.
 const Header = ({ header, rightLink }) => {
+  const { t } = useTranslation();
   const { onOpenExportImport, onOpenAccount, account } = header ?? {};
   return (
     <header className="app-header">
       <Link className="brand" href="/">
         <OtterMark />
-        On-task Otter
+        {t("app.name")}
       </Link>
 
       {header && (
@@ -26,12 +28,12 @@ const Header = ({ header, rightLink }) => {
             <button
               className={`account-trigger ${account.saveState === "error" ? "warning" : ""}`}
               type="button"
-              title={account.teacher ? `Signed in as ${account.teacher.email}` : undefined}
+              title={account.teacher ? t("header.signedInAs", { email: account.teacher.email }) : undefined}
               onClick={onOpenAccount}
             >
-              {accountButtonText(account)}
+              {accountButtonText(t, account)}
             </button>
-            <button className="export-import-trigger" type="button" onClick={onOpenExportImport}>Save Classroom Setup</button>
+            <button className="export-import-trigger" type="button" onClick={onOpenExportImport}>{t("header.saveClassroom")}</button>
           </div>
         </>
       )}

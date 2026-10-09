@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import Modal from "../Modal/Modal";
+import RichText from "../Text/RichText";
+import { useTranslation } from "../../i18n";
 
 const AccountModal = ({ account, onClose }) => {
+  const { t } = useTranslation();
   const [isCreating, setIsCreating] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -35,36 +38,37 @@ const AccountModal = ({ account, onClose }) => {
       onClose={onClose}
       className="account-modal"
       ariaLabelledBy="account-title"
-      closeLabel="Close teacher account window"
+      closeLabel={t("account.close")}
     >
       {account.teacher ? (
         <>
-          <p className="account-label">Teacher Account</p>
-          <h2 id="account-title">Your classroom saves itself</h2>
+          <p className="account-label">{t("account.label")}</p>
+          <h2 id="account-title">{t("account.savedTitle")}</h2>
           <p className="account-copy">
-            Signed in as <b>{account.teacher.email}</b>. Every session, point, and room stays with
-            your account, so you can pick up on any computer by signing in again.
+            <RichText
+              textKey="account.savedBody"
+              values={{ email: account.teacher.email }}
+              links={{ email: `mailto:${account.teacher.email}` }}
+            />
           </p>
 
           <button className="account-secondary" type="button" onClick={account.signOut}>
-            Sign out
+            {t("account.signOut")}
           </button>
           <p className="account-note">
-            Signing out leaves this classroom on this computer. Nothing is erased.
+            {t("account.signOutNote")}
           </p>
         </>
       ) : (
         <>
-          <p className="account-label">Teacher Account</p>
-          <h2 id="account-title">{isCreating ? "Create your account" : "Welcome back"}</h2>
+          <p className="account-label">{t("account.label")}</p>
+          <h2 id="account-title">{isCreating ? t("account.createTitle") : t("account.welcomeTitle")}</h2>
           <p className="account-copy">
-            {isCreating
-              ? "An account keeps your class points and classroom setup safe, so you never have to save a file. Your classroom on this screen becomes the starting point."
-              : "Sign in to bring back the class points and classroom setup saved to your account. What is on this screen now will be replaced by your saved classroom."}
+            {isCreating ? t("account.createBody") : t("account.signInBody")}
           </p>
 
           <form className="account-form" onSubmit={submit}>
-            <label htmlFor="account-email">School email</label>
+            <label htmlFor="account-email">{t("account.email")}</label>
             <input
               id="account-email"
               type="email"
@@ -74,7 +78,7 @@ const AccountModal = ({ account, onClose }) => {
               onChange={(event) => setEmail(event.target.value)}
             />
 
-            <label htmlFor="account-password">Password</label>
+            <label htmlFor="account-password">{t("account.password")}</label>
             <input
               id="account-password"
               type="password"
@@ -84,7 +88,7 @@ const AccountModal = ({ account, onClose }) => {
               value={password}
               onChange={(event) => setPassword(event.target.value)}
             />
-            {isCreating && <p className="account-hint">Use at least 8 characters.</p>}
+            {isCreating && <p className="account-hint">{t("account.passwordHint")}</p>}
 
             {account.errorMessage && (
               <p className="account-message error" role="alert">
@@ -93,7 +97,7 @@ const AccountModal = ({ account, onClose }) => {
             )}
 
             <button className="account-primary" type="submit" disabled={account.isBusy}>
-              {account.isBusy ? "One moment…" : isCreating ? "Create account" : "Sign in"}
+              {account.isBusy ? t("account.busy") : isCreating ? t("account.create") : t("account.signIn")}
             </button>
           </form>
 
@@ -102,13 +106,10 @@ const AccountModal = ({ account, onClose }) => {
             type="button"
             onClick={() => setIsCreating((creating) => !creating)}
           >
-            {isCreating ? "I already have an account" : "I need to create an account"}
+            {isCreating ? t("account.haveAccount") : t("account.needAccount")}
           </button>
 
-          <p className="account-note">
-            No account needed to use On-task Otter. Without one, your classroom stays on this
-            computer only.
-          </p>
+          <p className="account-note">{t("account.note")}</p>
         </>
       )}
     </Modal>

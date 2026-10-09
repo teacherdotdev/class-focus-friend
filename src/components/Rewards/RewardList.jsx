@@ -1,5 +1,8 @@
+import { useTranslation } from "../../i18n";
+
 const RewardList = ({ points, accessories, unlocked, equipped, buyOrEquip, isPreviewing }) => {
-    const rewardItems = accessories.map((item) => {
+  const { t } = useTranslation();
+  const rewardItems = accessories.map((item) => {
     const owned = unlocked.includes(item.id);
     const wearing = equipped.includes(item.id);
 
@@ -10,12 +13,12 @@ const RewardList = ({ points, accessories, unlocked, equipped, buyOrEquip, isPre
         </span>
 
         <div>
-          <b>{item.name}</b>
+          <b>{t(`accessory.${item.id}`)}</b>
           <small>
             {owned
               ? wearing
-                ? "Wearing now"
-                : "Unlocked"
+                ? t("shop.wearing")
+                : t("shop.unlocked")
               : `★ ${item.cost}`}
           </small>
         </div>
@@ -27,9 +30,9 @@ const RewardList = ({ points, accessories, unlocked, equipped, buyOrEquip, isPre
         >
           {owned
             ? wearing
-              ? "Remove"
-              : "Wear"
-            : "Unlock"}
+              ? t("shop.remove")
+              : t("shop.wear")
+            : t("shop.unlock")}
         </button>
       </article>
     );

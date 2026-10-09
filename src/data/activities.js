@@ -1,6 +1,8 @@
+// The wording for each activity lives in the translations, under
+// "activity.<id>.label" and "activity.<id>.detail".
 const activities = {
-  independent: { label: "Independent work", detail: "Very quiet", threshold: 22 },
-  partner: { label: "Group work", detail: "Conversation voices", threshold: 48 },
+  independent: { threshold: 22 },
+  partner: { threshold: 48 },
 };
 
 export { activities };

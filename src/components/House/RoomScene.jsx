@@ -1,7 +1,9 @@
 import RoomFixtures from "./RoomFixtures";
 import Otter from "../Otter/Otter";
+import { useTranslation } from "../../i18n";
 
 const RoomScene = ({ room, decorations, availableItems = [], accessoryItems = [], unlockedAccessories = [], equipped, isCelebrating, isFocusing, noiseTone, otterName, focusMode = false, editingMode, points, isPreviewing, selectedItem, onChooseItem, onConfirmItem, onCloseEditor }) => {
+  const { t } = useTranslation();
   const visibleItems = editingMode === "decorations" ? availableItems : decorations;
   const selectedIsOwned = selectedItem && (
     editingMode === "decorations"
@@ -14,14 +16,14 @@ const RoomScene = ({ room, decorations, availableItems = [], accessoryItems = []
     <>
       {editingMode && (
         <div className="scene-shop-toolbar">
-          <b>{editingMode === "decorations" ? "Choose a gray room item" : "Choose a gray clothing spot"}</b>
-          <span>{isPreviewing ? "Preview" : `★ ${points} stars`}</span>
-          <button type="button" onClick={onCloseEditor}>Done</button>
+          <b>{editingMode === "decorations" ? t("scene.chooseItem") : t("scene.chooseClothing")}</b>
+          <span>{isPreviewing ? t("scene.preview") : t("scene.stars", { points })}</span>
+          <button type="button" onClick={onCloseEditor}>{t("scene.done")}</button>
         </div>
       )}
     <section
       className={`room-scene room-${room.id}`}
-      aria-label={`${room.name} in the otter's house`}
+      aria-label={t("scene.roomLabel", { room: t(`room.${room.id}.name`) })}
     >
       {!focusMode && <div className="room-scene-label">
         <span>
@@ -29,8 +31,8 @@ const RoomScene = ({ room, decorations, availableItems = [], accessoryItems = []
         </span>
 
         <div>
-          <b>{room.name}</b>
-          <small>{room.description}</small>
+          <b>{t(`room.${room.id}.name`)}</b>
+          <small>{t(`room.${room.id}.description`)}</small>
         </div>
       </div>}
 
@@ -40,6 +42,7 @@ const RoomScene = ({ room, decorations, availableItems = [], accessoryItems = []
         <span className="window-cloud cloud-one" />
         <span className="window-cloud cloud-two" />
       </div>
+      <div className="room-window-sill" aria-hidden="true" />
       <div className="otter-at-home">
         <Otter
           equipped={equipped}
@@ -49,16 +52,19 @@ const RoomScene = ({ room, decorations, availableItems = [], accessoryItems = []
           noiseTone={noiseTone}
         />
         {editingMode === "accessories" && (
-          <div className="accessory-price-spots" aria-label="Clothing choices">
+          <div className="accessory-price-spots" aria-label={t("scene.clothingChoices")}>
             {accessoryItems.filter((item) => !equipped.includes(item.id)).map((item) => (
               <button
                 className={`accessory-price-spot accessory-${item.id}`}
                 key={item.id}
                 type="button"
-                aria-label={`${item.name}, ${unlockedAccessories.includes(item.id) ? "owned" : `${item.cost} stars`}`}
+                aria-label={t("scene.accessoryLabel", {
+                  name: t(`accessory.${item.id}`),
+                  state: unlockedAccessories.includes(item.id) ? t("scene.owned") : t("scene.costStars", { cost: item.cost }),
+                })}
                 onClick={() => onChooseItem(item)}
               >
-                <span>{unlockedAccessories.includes(item.id) ? "Owned" : `★ ${item.cost}`}</span>
+                <span>{unlockedAccessories.includes(item.id) ? t("scene.ownedShort") : `★ ${item.cost}`}</span>
               </button>
             ))}
           </div>
@@ -68,7 +74,7 @@ const RoomScene = ({ room, decorations, availableItems = [], accessoryItems = []
       {visibleItems.length ? (
         <div
           className="placed-decorations"
-          aria-label="Decorations in this room"
+          aria-label={t("scene.decorations")}
         >
           {visibleItems.map((item) => {
             const pos = item.roomPosition;
@@ -84,14 +90,14 @@ const RoomScene = ({ room, decorations, availableItems = [], accessoryItems = []
                   width: pos.w + "%",
                   zIndex: pos.z,
                 }}
-                aria-label={item.name}
+                aria-label={t(`item.${item.id}`)}
                 type="button"
                 disabled={editingMode !== "decorations" || owned}
                 onClick={() => onChooseItem(item)}
               >
                 <img
                   src={item.roomImage}
-                  alt={item.name}
+                  alt={t(`item.${item.id}`)}
                   style={{ width: "100%", height: "auto" }}
                   draggable={false}
                 />
@@ -107,23 +113,23 @@ const RoomScene = ({ room, decorations, availableItems = [], accessoryItems = []
         </div>
       ) : !focusMode ? (
         <p className="empty-room">
-          {otterName} is settling in. Decorate this room to make it your own.
+          {t("scene.emptyRoom", { name: otterName })}
         </p>
       ) : null}
 
       {selectedItem && (
         <aside className={`scene-purchase-card ${selectedX < 50 ? "side-right" : "side-left"}`} aria-live="polite">
-          <button className="scene-purchase-close" type="button" aria-label="Close item details" onClick={() => onChooseItem(null)}>×</button>
+          <button className="scene-purchase-close" type="button" aria-label={t("scene.closeDetails")} onClick={() => onChooseItem(null)}>×</button>
           {selectedItem.image ? (
             <img src={selectedItem.image} alt="" />
           ) : (
             <span className="scene-purchase-icon" aria-hidden="true">{selectedItem.icon}</span>
           )}
           <div>
-            <small>{editingMode === "decorations" ? "Room decoration" : "Otter clothing"}</small>
-            <h3>{selectedItem.name}</h3>
-            <b>{selectedIsOwned ? "Already owned" : `★ ${selectedItem.cost}`}</b>
-            {!isPreviewing && !selectedIsOwned && <p>★ {Math.max(0, points - selectedItem.cost)} stars left after purchase</p>}
+            <small>{editingMode === "decorations" ? t("scene.roomDecoration") : t("scene.otterClothing")}</small>
+            <h3>{editingMode === "decorations" ? t(`item.${selectedItem.id}`) : t(`accessory.${selectedItem.id}`)}</h3>
+            <b>{selectedIsOwned ? t("scene.alreadyOwned") : `★ ${selectedItem.cost}`}</b>
+            {!isPreviewing && !selectedIsOwned && <p>{t("scene.starsLeft", { stars: Math.max(0, points - selectedItem.cost) })}</p>}
           </div>
           <button
             className="scene-purchase-button"
@@ -131,7 +137,7 @@ const RoomScene = ({ room, decorations, availableItems = [], accessoryItems = []
             disabled={!isPreviewing && !selectedIsOwned && points < selectedItem.cost}
             onClick={() => onConfirmItem(selectedItem)}
           >
-            {isPreviewing ? "Place in preview" : selectedIsOwned ? "Wear it" : points < selectedItem.cost ? "Not enough stars" : `Buy for ★ ${selectedItem.cost}`}
+            {isPreviewing ? t("scene.placeInPreview") : selectedIsOwned ? t("scene.wearIt") : points < selectedItem.cost ? t("scene.notEnough") : t("scene.buyFor", { cost: selectedItem.cost })}
           </button>
         </aside>
       )}

@@ -1,7 +1,12 @@
 import edtechathonLogo from "../../assets/edtechathon-logo.svg";
 import Link from "../Link/Link";
+import LanguagePicker from "../Language/LanguagePicker";
+import { useTranslation } from "../../i18n";
 
-const Footer = () => (
+const Footer = () => {
+  const { t } = useTranslation();
+
+  return (
   <footer className="site-footer">
     <a
       className="edtechathon-credit"
@@ -10,11 +15,13 @@ const Footer = () => (
       rel="noopener noreferrer"
     >
       <img src={edtechathonLogo} alt="" />
-      Built by the EdTech-a-thon
+      {t("footer.builtBy")}
     </a>
-    <Link href="/about">about</Link>
-    <Link href="/privacy">privacy</Link>
+    <Link href="/about">{t("footer.about")}</Link>
+    <Link href="/privacy">{t("footer.privacy")}</Link>
+    <LanguagePicker />
   </footer>
-);
+  );
+};
 
 export default Footer;

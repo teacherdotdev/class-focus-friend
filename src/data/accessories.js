@@ -1,5 +1,6 @@
+// Each accessory's name lives in the translations, under "accessory.<id>".
 export const accessories = [
-  { id: "glasses", name: "Sunny Specs", icon: "⌐■-■", cost: 30 },
-  { id: "party-hat", name: "Party Hat", icon: "△", cost: 40 },
-  { id: "bow-tie", name: "Bow Tie", icon: "◆", cost: 50 },
+  { id: "glasses", icon: "⌐■-■", cost: 30 },
+  { id: "party-hat", icon: "△", cost: 40 },
+  { id: "bow-tie", icon: "◆", cost: 50 },
 ];

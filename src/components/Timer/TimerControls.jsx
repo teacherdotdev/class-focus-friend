@@ -1,7 +1,9 @@
 import EncouragementMessage from "./EncouragementMessage";
 import { useState } from "react";
+import { useTranslation } from "../../i18n";
 
 const TimerControls = ({ timerSettings, session, displayCountdown, focusMode = false }) => {
+  const { t } = useTranslation();
   const { timer, noiseTone, formatTime, needsTeacherResume, resumeAfterNoise, resetTimer } = timerSettings;
   const {
     showCountdown,
@@ -25,12 +27,12 @@ const TimerControls = ({ timerSettings, session, displayCountdown, focusMode = f
 
   return (
     <section className="timer-controls">
-      <p className="card-label">Focus session</p>
+      <p className="card-label">{t("session.label")}</p>
 
       {!hasStarted && (
         <div className="focus-launcher">
           {session.favoriteSessions.length > 0 && <div className="focus-favorites">
-            <h2>Start a favorite</h2>
+            <h2>{t("session.favorites")}</h2>
             {session.favoriteSessions.map((favorite) => (
               <button key={favorite.id} type="button" onClick={() => launchSession({
                 minutes: favorite.minutes,
@@ -41,7 +43,7 @@ const TimerControls = ({ timerSettings, session, displayCountdown, focusMode = f
                 soundThreshold: favorite.soundThreshold,
               })}>
                 <b>{favorite.name}</b>
-                <span>{favorite.minutes} min · {favorite.trackSound === false ? "No sound meter" : "Tracks sound"}</span>
+                <span>{t("session.minutesShort", { minutes: favorite.minutes })} · {favorite.trackSound === false ? t("session.noSoundMeter") : t("session.tracksSound")}</span>
               </button>
             ))}
           </div>}
@@ -50,17 +52,17 @@ const TimerControls = ({ timerSettings, session, displayCountdown, focusMode = f
             event.preventDefault();
             launchSession({ minutes: quickMinutes, activity: quickActivity, trackSound: quickTrackSound, showCountdown: quickShowCountdown });
           }}>
-            <h2>Quick start</h2>
-            <label>Minutes<input type="number" min="1" value={quickMinutes} onChange={(event) => setQuickMinutes(Math.max(1, Number(event.target.value) || 1))} /></label>
-            <label className="checkbox-option"><input type="checkbox" checked={quickTrackSound} onChange={(event) => setQuickTrackSound(event.target.checked)} /> Track classroom sound</label>
+            <h2>{t("session.quickStart")}</h2>
+            <label>{t("session.minutes")}<input type="number" min="1" value={quickMinutes} onChange={(event) => setQuickMinutes(Math.max(1, Number(event.target.value) || 1))} /></label>
+            <label className="checkbox-option"><input type="checkbox" checked={quickTrackSound} onChange={(event) => setQuickTrackSound(event.target.checked)} /> {t("noise.track")}</label>
             {quickTrackSound && <fieldset className="quick-sound-limit">
-              <legend>Acceptable volume</legend>
-              {Object.entries(session.activities).map(([id, item]) => <label key={id}>
-                <input type="radio" name="quick-sound-limit" checked={quickActivity === id} onChange={() => setQuickActivity(id)} /> {item.label} limit
+              <legend>{t("noise.acceptableVolume")}</legend>
+              {Object.keys(session.activities).map((id) => <label key={id}>
+                <input type="radio" name="quick-sound-limit" checked={quickActivity === id} onChange={() => setQuickActivity(id)} /> {t("session.soundLimit", { activity: t(`activity.${id}.label`).toLowerCase() })}
               </label>)}
             </fieldset>}
-            <label className="checkbox-option"><input type="checkbox" checked={quickShowCountdown} onChange={(event) => setQuickShowCountdown(event.target.checked)} /> Show countdown</label>
-            <button className="primary" type="submit">Start focus session</button>
+            <label className="checkbox-option"><input type="checkbox" checked={quickShowCountdown} onChange={(event) => setQuickShowCountdown(event.target.checked)} /> {t("session.showCountdown")}</label>
+            <button className="primary" type="submit">{t("session.start")}</button>
           </form>
         </div>
       )}
@@ -71,12 +73,12 @@ const TimerControls = ({ timerSettings, session, displayCountdown, focusMode = f
 
       <p className="timer-caption">
         {needsTeacherResume
-          ? "The class is waiting for a teacher check-in."
+          ? t("session.waiting")
           : timer.isRunning
-          ? "Your class is building focus stamina." 
+          ? t("session.building")
           : showCountdown
-          ? `${timer.durationSeconds / 60} minute focus session`
-          : "Focus session"}
+          ? t("session.lengthCaption", { minutes: timer.durationSeconds / 60 })
+          : t("session.label")}
       </p>
 
       {focusMode && <div className="button-row">
@@ -87,19 +89,19 @@ const TimerControls = ({ timerSettings, session, displayCountdown, focusMode = f
           disabled={timer.isComplete}
         >
           {timer.isRunning
-            ? "Pause session" 
-            : timer.isComplete 
-            ? "Session complete" 
+            ? t("session.pause")
+            : timer.isComplete
+            ? t("session.complete")
             : needsTeacherResume
-            ? "Resume session"
-            : "Start session"}
+            ? t("session.resume")
+            : t("session.startShort")}
         </button>
 
         <button 
           className="plain-button" 
           type="button" 
           onClick={resetTimer}>
-            Reset
+            {t("session.reset")}
         </button>
       </div>}</>}
     </section>
