@@ -73,8 +73,8 @@ const PrivacyPage = () => (
         <h2>Questions</h2>
         <p>
           Questions or concerns? Email{" "}
-          <a href="mailto:support@ontaskotter.com?subject=On-task%20Otter%20privacy">
-            support@ontaskotter.com
+          <a href="mailto:support@teacher.dev?subject=On-task%20Otter%20privacy">
+            support@teacher.dev
           </a>
           .
         </p>

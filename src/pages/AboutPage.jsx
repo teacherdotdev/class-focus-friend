@@ -55,9 +55,9 @@ const AboutPage = () => (
         </p>
         <a
           className="primary page-button"
-          href="mailto:support@ontaskotter.com?subject=On-task%20Otter%20feedback"
+          href="mailto:support@teacher.dev?subject=On-task%20Otter%20feedback"
         >
-          Email support@ontaskotter.com
+          Email support@teacher.dev
         </a>
       </section>
     </main>
