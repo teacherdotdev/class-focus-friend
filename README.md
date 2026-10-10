@@ -111,7 +111,7 @@ Every screen carries a footer crediting the
 `/about`, which introduces the people behind the project, and `/privacy`, which
 explains what the app stores and what it never collects. Both are reached
 through `src/hooks/useRoute.js`, a small address watcher that keeps the site a
-single page. Teachers who write in are answered at support@ontaskotter.com.
+single page. Teachers who write in are answered at support@teacher.dev.
 
 ## Publishing the Website
 

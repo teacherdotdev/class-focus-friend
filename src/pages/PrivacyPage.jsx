@@ -38,7 +38,7 @@ const PrivacyPage = () => {
           <p>
             <RichText
               textKey="privacy.questions.body"
-              links={{ email: "mailto:support@ontaskotter.com?subject=On-task%20Otter%20privacy" }}
+              links={{ email: "mailto:support@teacher.dev?subject=On-task%20Otter%20privacy" }}
             />
           </p>
         </section>

@@ -342,7 +342,7 @@ export const en = {
     "about.promise.tracking": "Zero tracking of personal data.",
     "about.feedback.title": "Feedback & ideas",
     "about.feedback.body": "We would love to hear from you. Tell us what is working, what is not, or pitch us an idea for a tool you wish existed. We are here to help.",
-    "about.feedback.button": "Email support@ontaskotter.com",
+    "about.feedback.button": "Email support@teacher.dev",
 
     "privacy.title": "Privacy",
     "privacy.intro": "What we collect, what we do not, and why.",
@@ -357,7 +357,7 @@ export const en = {
     "privacy.visits.title": "Visits to the site",
     "privacy.visits.body": "We use Cloudflare Web Analytics to anonymously count visits, which helps us understand how On-task Otter is being used in classrooms. It is cookieless, does not fingerprint visitors, and does not track people across other sites. See Cloudflare's [privacy policy](cloudflare) for details. We do not share, sell, or otherwise transfer any visitor data to third parties.",
     "privacy.questions.title": "Questions",
-    "privacy.questions.body": "Questions or concerns? Email [support@ontaskotter.com](email).",
+    "privacy.questions.body": "Questions or concerns? Email [support@teacher.dev](email).",
 
     "accessory.glasses": "Sunny Specs",
     "accessory.party-hat": "Party Hat",
