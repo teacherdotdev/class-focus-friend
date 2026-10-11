@@ -6,7 +6,7 @@ import { useTranslation } from "../i18n";
 const PrivacyPage = () => {
   const { t } = useTranslation();
 
-  const sections = ["students", "noise", "progress", "accounts"];
+  const sections = ["students", "noise", "progress"];
 
   return (
     <div className="app-shell page-shell">

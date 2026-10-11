@@ -550,35 +550,8 @@ legend { font-size: .88rem; font-weight: 700; margin-bottom: 10px; }
    .clear-data-actions { grid-template-columns: 1fr; }
 }
 
-/* Teacher accounts */
+/* Header buttons */
 .app-header-actions { align-items: center; display: flex; flex-wrap: wrap; gap: 10px; }
-.account-trigger { background: #edf3e9; border: 1px solid #9eaea8; border-radius: 999px; color: #25433d; cursor: pointer; font-size: .86rem; font-weight: 700; padding: 9px 15px; }
-.account-trigger:hover { background: #dfeade; border-color: #6e9588; }
-.account-trigger.warning { background: #f8e8de; border-color: #d8a293; color: #a94d3c; }
-.account-modal { background: #fffaf0; border: 1px solid #e7ded0; border-radius: 28px; box-shadow: 0 25px 80px rgba(18, 42, 35, .35); max-height: calc(100vh - 40px); max-width: 480px; overflow-y: auto; padding: 38px; position: relative; width: 100%; }
-.account-modal > .modal-close { align-items: center; background: #f4eee3; border: 0; border-radius: 50%; color: #526a63; cursor: pointer; display: flex; font-size: 1.55rem; height: 38px; justify-content: center; line-height: 1; padding: 0 0 3px; width: 38px; }
-.account-modal > .modal-close:hover { background: #eadfd2; color: #25433d; }
-.account-label { color: #cb654e; font-size: .82rem; font-weight: 700; letter-spacing: .03em; margin: 0 48px 8px 0; text-transform: uppercase; }
-.account-modal h2 { margin-right: 48px; }
-.account-copy { color: #60756e; line-height: 1.6; margin: 15px 0 24px; }
-.account-form { display: grid; gap: 6px; }
-.account-form label { color: #25433d; font-size: .88rem; font-weight: 700; }
-.account-form input { background: #fffaf0; border: 1px solid #d7c8b3; border-radius: 12px; color: #25433d; font: inherit; margin-bottom: 10px; padding: 11px 13px; width: 100%; }
-.account-form input:focus { border-color: #6e9588; outline: 2px solid #c4d8cc; }
-.account-hint { color: #795d52; font-size: .8rem; margin: -6px 0 10px; }
-.account-primary { background: #25433d; border: 1px solid #25433d; border-radius: 999px; color: #fffaf0; cursor: pointer; font-weight: 700; margin-top: 6px; padding: 12px 18px; }
-.account-primary:hover:not(:disabled) { background: #39675b; }
-.account-primary:disabled { cursor: progress; opacity: .65; }
-.account-secondary { background: #f8d97a; border: 1px solid #e8c35e; border-radius: 999px; color: #25433d; cursor: pointer; font-weight: 700; padding: 12px 18px; width: 100%; }
-.account-secondary:hover { background: #f4ce61; }
-.account-switch { background: none; border: 0; color: #39675b; cursor: pointer; font: inherit; font-size: .88rem; font-weight: 700; margin-top: 14px; padding: 4px 0; text-decoration: underline; }
-.account-note { border-top: 1px solid #e7ded0; color: #795d52; font-size: .82rem; line-height: 1.5; margin-top: 18px; padding-top: 14px; }
-.account-message { border-radius: 12px; font-size: .9rem; font-weight: 700; margin: 4px 0 0; padding: 10px 12px; }
-.account-message.error { background: #f8e8de; color: #a94d3c; }
-
-@media (max-width: 640px) {
-  .account-modal { padding: 28px 22px; }
-}
 
 /* The footer, and the About and Privacy pages that share it. */
 .site-footer { align-items: center; color: #60756e; display: flex; flex-wrap: wrap; font-size: .88rem; gap: 10px 20px; justify-content: center; margin: 0 auto; max-width: 1180px; padding: 34px 32px 10px; }

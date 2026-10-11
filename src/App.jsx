@@ -1,9 +1,8 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { accessories } from "./data/accessories";
 import { activities } from "./data/activities";
 import { houseItems, houseRooms } from "./data/houseItems";
 import { useLocalStorage } from "./hooks/useLocalStorage";
-import { useTeacherAccount } from "./hooks/useTeacherAccount";
 import { useMicrophone } from "./hooks/useMicrophone";
 import { useFullScreen } from "./hooks/useFullScreen";
 import { useTimer } from "./hooks/useTimer";
@@ -17,7 +16,6 @@ import HouseCard from "./components/House/HouseCard";
 import SessionCompletionModal from "./components/SessionCompleteModal/SessionCompletionModal";
 import ExportImportModal from "./components/ExportImport/ExportImportModal";
 import ClearDataModal from "./components/ClearData/ClearDataModal";
-import AccountModal from "./components/Account/AccountModal";
 import Footer from "./components/Footer/Footer";
 import SupportButton from "./components/Support/SupportButton";
 import AboutPage from "./pages/AboutPage";
@@ -199,7 +197,6 @@ const Classroom = () => {
   // temporary session state
   const [showComplete, setShowComplete] = useState(false);
   const [showExportImport, setShowExportImport] = useState(false);
-  const [showAccount, setShowAccount] = useState(false);
   const [showClearData, setShowClearData] = useState(false);
   const [appMode, setAppMode] = useState("configure");
   const fullScreen = useFullScreen();
@@ -555,20 +552,8 @@ const Classroom = () => {
     onTaskOtterHouse: houseData,
   };
 
-  // Puts a classroom loaded from a teacher's account onto the screen.
-  const applyClassroom = useCallback((classroom) => {
-    setSettings(classroom.onTaskOtterSettings);
-    setProgressData(classroom.onTaskOtterProgress);
-    setRewardData(classroom.onTaskOtterRewards);
-    setHouseData(classroom.onTaskOtterHouse);
-  }, [setHouseData, setProgressData, setRewardData, setSettings]);
-
-  const account = useTeacherAccount({ classroomData, applyClassroom });
-
   const header = {
     points,
-    account,
-    onOpenAccount: () => setShowAccount(true),
     onOpenExportImport: () => setShowExportImport(true),
   };
 
@@ -579,14 +564,7 @@ const Classroom = () => {
     rooms: houseRooms.map((room) => room.id),
   };
 
-  const eraseSavedData = async () => {
-    // A signed-in teacher's account is emptied too, so the erased classroom
-    // cannot come back the next time they open On-task Otter.
-    try {
-      await account.eraseSavedClassroom();
-    } catch {
-      // This device is still erased even if the account could not be reached.
-    }
+  const eraseSavedData = () => {
     clearClassroomData();
     window.location.reload();
   };
@@ -659,10 +637,6 @@ const Classroom = () => {
         duration={t("complete.duration", { minutes: timer.durationSeconds / 60 })}
       />
 
-      {showAccount && (
-        <AccountModal account={account} onClose={() => setShowAccount(false)} />
-      )}
-
       {showExportImport && (
         <ExportImportModal
           classroomData={classroomData}
@@ -674,7 +648,6 @@ const Classroom = () => {
       {showClearData && (
         <ClearDataModal
           classroomData={classroomData}
-          isSignedIn={Boolean(account.teacher)}
           onClose={() => setShowClearData(false)}
           onConfirm={eraseSavedData}
         />

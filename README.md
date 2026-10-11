@@ -18,7 +18,7 @@ On-task Otter turns a focus session into a shared goal. When the class completes
 
 ## MVP: The First Version
 
-The first version keeps the experience simple and useful for one classroom. It saves classroom progress on the current device, with an optional teacher account for carrying that progress between computers. Students never sign in.
+The first version keeps the experience simple and useful for one classroom. It saves classroom progress on the current device, and a teacher can download it to a file to carry it to another computer. No one signs in.
 
 - A shared focus-session timer where the teacher can enter a session length in minutes, save a named setup as a favorite, and return to favorites for future sessions.
 - A classroom character that earns points when a focus session is completed.
@@ -37,16 +37,15 @@ The first version keeps the experience simple and useful for one classroom. It s
 3. When the session is completed, the class earns points for its character.
 4. The class can use earned points to personalize the character over time.
 
-## Teacher Accounts
+## Saving a Classroom
 
-On-task Otter works with no account at all: everything a class earns stays on the
-computer it was earned on. A teacher who wants their classroom to follow them can
-make an account with an email and password. From then on the class points, the
-timer settings, the reward shop, and the otter's house save themselves
-as they change, and come back by signing in on any computer.
+On-task Otter has no accounts. Everything a class earns is kept in the browser on
+the computer it was earned on, and saves itself as it changes.
 
-Signing in loads the classroom saved to that account, replacing whatever is on the
-screen. Signing out leaves the classroom on that computer untouched.
+To move a classroom to another computer, or keep a backup, the teacher presses
+**Save Classroom Setup** and downloads a save file. It holds the class points,
+the timer settings and favorites, the reward shop, the otter's house, and the
+session history. Restoring that file on any computer brings the classroom back.
 
 ## Later Ideas
 
@@ -79,24 +78,7 @@ You will need [Bun](https://bun.sh/) installed on your computer.
    bun run dev
    ```
 
-3. Start the accounts database in a second terminal:
-
-   ```bash
-   bun run db
-   ```
-
-   The first time on a new computer, run `bun run db:install` once to download it.
-
-4. Open the local address shown in your terminal to view the app.
-
-Copy `.env.example` to `.env.local` if you need to point the app at a database
-somewhere other than the one running alongside it.
-
-### Reviewing teacher accounts
-
-The database comes with its own admin page, reachable at `/_/` on the same
-address as the app. Sign in there to see the list of teacher accounts and the
-classroom saved with each one.
+3. Open the local address shown in your terminal to view the app.
 
 To create a production build, run:
 
@@ -124,22 +106,6 @@ it are answered:
   `/privacy` as you move around it, so every address that is not a real file
   loads that page. A teacher can refresh, bookmark, or share any of those links
   and still land on a working app instead of a "not found" screen.
-- Addresses starting with `/api` and `/_` are left out of that rule, because they
-  belong to PocketBase. Without this, a sign-in request would be answered with
-  the page itself, and the app would report a confusing error instead of a clear
-  one.
 - Each build names its files after their contents, so browsers keep them for a
   year, while the page itself is checked on every visit. A classroom always opens
   the newest version without a hard refresh.
-
-### Teacher accounts on the published site
-
-Vercel hosts the website only. PocketBase keeps its records in a file and needs
-to stay running, so it lives on its own always-on computer rather than on Vercel.
-Until it has one, the published site works fully on its own, saving each
-classroom on the computer it is used on, and only the optional teacher accounts
-are unavailable.
-
-Once PocketBase is running somewhere with its own web address, add a
-`VITE_POCKETBASE_URL` environment variable in the Vercel project settings, set it
-to that address, and redeploy. Nothing in `vercel.json` needs to change.
